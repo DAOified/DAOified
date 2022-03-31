@@ -1,0 +1,34 @@
+name: Build and Deploy Frontend (Production)
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-frontend-prod:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Build 🔧
+        run: |
+          cd frontend
+          npm ci
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          folder: frontend/build # Deploy this folder
+          branch: main # to this branch
+          repository-name: DAOified/DAOified.github.io # of this repository
+          git-config-name: David Zunft
+          git-config-email: DavidZunft@protonmail.com
+          token: ${{ secrets.CROSS_REPO_DEPLOY_ACCESS_TOKEN }}
+          single-commit: true
+          clean: true
+          silent: true
