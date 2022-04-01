@@ -27,7 +27,7 @@ function Hero() {
           DAOified
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" paragraph>
-          Tokenize your GitHub projects.
+          Tokenized open source projects.
         </Typography>
         <Stack
           sx={{ pt: 4 }}

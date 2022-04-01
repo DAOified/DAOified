@@ -31,7 +31,7 @@ function Footer() {
                 color="text.secondary"
                 component="p"
             >
-                Tokenize your GitHub projects.
+                Tokenized open source projects.
             </Typography>
             <Copyright />
         </Box>
